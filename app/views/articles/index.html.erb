@@ -1,0 +1,13 @@
+<h1>List of articles</h1>
+<ul style="list-style: none">
+  <% @articles.each do |article| %>
+    <li>
+      <%= article.title %>
+      <div class="btn btn-outline-primary btn-sm"><%= link_to "Show details", article %></div>
+      <div class="btn btn-outline-warning btn-sm"><%= link_to "Update", edit_article_path(article) %></div>
+      <div class="btn btn-outline-danger btn-sm"><%= link_to "Delete", article_path(article), method: :delete %></div>
+    </li>
+  <% end %>
+</ul>
+<p>Total of <%= @articles.count %> article(s)</p>
+<%= link_to "Add a new article", new_article_path %>
